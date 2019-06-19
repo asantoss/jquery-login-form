@@ -5,18 +5,19 @@
     <meta content="ie=edge" http-equiv="x-ua-compatible" />
     <title>Login to bloop.xyz</title>
     <meta content="" name="description" />
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" name="viewport" />
 </head>
 <body>
 
 <header>
-    <h1><a href="#">bloop.xyz</a></h1>
+    <h1 class="bloop"><a href="#">bloop.xyz</a></h1>
     <p class="tagline">Have you blooped today?</p>
 </header>
-
 <section class="main-content">
     <form class="login-form">
-        <h1>Login to bloop.xyz</h1>
+        <h1>Login to <span class="bloop">bloop.xyz</span></h1>
         <div class="input-row"
             <label for="loginInput">Username:</label>
             <input class="big-input" type="text" id="loginInput" />
@@ -25,15 +26,24 @@
             <label for="passwordInput">Password:</label>
             <input class="big-input" type="password" id="passwordInput" />
         </div>
+        <p id="serverResponse"></p>
         <div class="action-row">
-            <button class="primary-btn" id="loginBtn">Log In</button>
+            <button class="primary-btn disabled" id="loginBtn">Log In</button>
         </div>
     </form>
     <div class="help-center">
         <a href="#">Don't have an account?</a>
-        <a href="#">Need help logging in?</a>
+        <a href="#" id="modalBtn">Need help logging in?</a>
     </div>
 </section>
+
+<div id="myModal" class="modal">
+<!-- Modal content -->
+    <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Some text in the Modal..</p>
+    </div>
+</div>
 
 <footer>
     <ul>
@@ -43,6 +53,10 @@
         <li>Made in Texas</li>
     </ul>
 </footer>
-
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src="./main.js"></script>
 </body>
 </html>
