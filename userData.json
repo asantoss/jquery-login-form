@@ -1,1 +1,1 @@
-{ "helpModal": {} }
+{"helpModal":{"testuser1":[{"helpModalWasOpened":false,"secondsTookToLogin":45}],"testadmin5":[{"helpModalWasOpened":false,"secondsTookToLogin":4}],"qauser3":[{"helpModalWasOpened":true,"helpContentNum":4,"numFailedLoginAttempts":1,"secondsTookToLogin":0}]}}

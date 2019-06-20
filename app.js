@@ -95,7 +95,7 @@ function userAnalytics(req, res) {
         if (err) throw err;
         var parseJson = JSON.parse(content);
         //Using the username as a key
-        parseJson.helpModal[username] = userStats;
+        parseJson.helpModal[username].push(userStats);
         fileSystem.writeFile('userData.json', JSON.stringify(parseJson), function(err) {
             if (err) throw err;
         })

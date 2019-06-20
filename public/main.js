@@ -14,32 +14,36 @@ $('.big-input').click(() => {
 //This is a simple login form.
 $('.login-form').submit(() => {
     $('#serverResponse').html("");
-    $('.action-row').html("Loading....")
+    $('.action-row').html("")
+    $('.action-row').addClass('loader')
     let responseTime = new Date().getTime()
     $.post(`${apiURL}api/login`, {
             username: $('#loginInput').val(),
             password: $('#passwordInput').val()
         })
         .done((result) => {
-            $('.action-row').html('<button class="primary-btn" id="loginBtn">Log In</button>');
             userAnalytics.secondsTookToLogin = Math.floor((new Date().getTime() - responseTime / 1000) % 60)
             $('#serverResponse').html("Success!");
+            $('.action-row').removeClass('loader')
             $.post(`${apiURL}api/login-help`, {
-                    username: $('#loginInput').val(),
-                    userData: JSON.stringify(userAnalytics)
-
-                })
-                .done((res) => {
-                    console.log(res, userAnalytics)
-                })
+                username: $('#loginInput').val(),
+                userData: JSON.stringify(userAnalytics)
+                
+            })
+            .done((res) => {
+                console.log(res, userAnalytics)
+            })
             location.href = 'index.html'
         })
         .fail(result => {
             failedLogin += 1;
+            $('.action-row').removeClass('loader')
+            $('.action-row').html('<button class="primary-btn" id="loginBtn">Log In</button>');
             userAnalytics.numFailedLoginAttempts = failedLogin;
             responseError = JSON.parse(result.responseText)
             $('#serverResponse').html(responseError.error);
         });
+
 });
 
 

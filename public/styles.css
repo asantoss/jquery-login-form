@@ -3,7 +3,7 @@ body {
     grid-template-areas: "header" "section" "footer";
     text-align: center;
     height: 100vh;
-    background-color: #FEFAE0;
+    background-color: #F6F6E9;
     grid-row-gap: 40px;
     margin: 0;
 }
@@ -16,7 +16,7 @@ header a {
 header {
     grid-area: header;
     align-self: start;
-    background-color: #DDA15E;
+    background-color: #FFA630;
     width: 100%;
     margin: 0;
 }
@@ -37,7 +37,7 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    background-color: #DDA15E;
+    background-color: #FFA630;
     border-radius: 25px;
     width: 100%;
     max-width: 500px;
@@ -91,16 +91,10 @@ footer {
 .modal-content {
     background-color: #fefefe;
     max-width: 500px;
-    position: absolute;
-    top: 5px;
-    bottom: 5px;
-    left: 5px;
-    right: 5px;
-    margin: 15% auto;
+    margin: 10% auto;
     /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
     /* Could be more or less, depending on screen size */
 }
 
@@ -126,11 +120,23 @@ footer>ul>li {
     padding: 10px;
 }
 
+.loader {
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid #000000; /* Blue */
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    margin: auto;
+    animation: spin 1s linear infinite;
+    }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
 @media screen and (min-width: 1000px) {
     body {
         grid-template-areas: "header header header" ".section." ".footer.";
-    }
-    .modal-content {
-        position: static;
     }
 }
